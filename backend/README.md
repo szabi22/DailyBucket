@@ -8,6 +8,7 @@ Code is commented.
 ### Running
 
 1) `git clone https://github.com/szabi22/DailyBucket.git`
+2) `cd DailyBucket`
 2) `git checkout feri_examples`
 3) Open backend folder with [IntelliJ](https://www.jetbrains.com/idea/)
 4) Few steps:
