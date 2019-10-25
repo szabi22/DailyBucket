@@ -11,8 +11,12 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -22,7 +26,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanseState);
         setContentView(R.layout.activity_main);
 
-        String currentApp = "";
+        Map<String, String> usageMap = this.getUsageInTimeOfCurrentApp();
+
+        for (String pkgName : usageMap.keySet()) {
+            Log.d(this.getClass().getCanonicalName(), pkgName);
+        }
+
+        ListView listView = findViewById(R.id.listView);
+
+        MySimpleArrayAdapter mySimpleArrayAdapter = new MySimpleArrayAdapter(
+                this,
+                usageMap
+        );
+
+        listView.setAdapter(mySimpleArrayAdapter);
+    }
+
+
+    public void openActivity(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public Map<String, String> getUsageInTimeOfCurrentApp() {
+        Map<String, String> usageMap = new HashMap<>();
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             Log.d(getClass().getCanonicalName(), "!@#$ if kezdet");
@@ -42,29 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 for (UsageStats usageStats : appList) {
                     mySortedMap.put(usageStats.getLastTimeUsed(),
                             usageStats);
-                    if (usageStats.getPackageName().toLowerCase().contains("facebook")) {
-                        Log.d(getClass().getCanonicalName(), "" + usageStats.getPackageName() + " " + usageStats.getTotalTimeInForeground() + "" + usageStats.);
-                    }
-                }
-
-                if (mySortedMap != null && !mySortedMap.isEmpty()) {
-                    currentApp = mySortedMap.get(
-                            mySortedMap.lastKey()).getPackageName();
+                    usageMap.put(usageStats.getPackageName(), "" + usageStats.getTotalTimeInForeground());
                 }
             }
-        } else {
-            ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-            List<ActivityManager.RunningAppProcessInfo> tasks = am
-                    .getRunningAppProcesses();
-            currentApp = tasks.get(0).processName;
         }
 
-        Log.d(this.getClass().getCanonicalName(), "!@#$% " + currentApp);
-    }
-
-
-    public void openActivity(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        return usageMap;
     }
 }
