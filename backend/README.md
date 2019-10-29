@@ -18,6 +18,18 @@ Code is commented.
    * Drop down **spring-boot**
    * Double click `spring-boot:run`
    
+#### Second Example
+
+In order to run this example:
+**MySQL server should be installed and should be running**.
+
+1) `git pull`
+2) Create database `dailybucket`
+3) Create database user `dailybucket` with password `password123`
+4) Grant all privileges for user on `dailybucket` database
+5) The rest of the steps are the same as for the first example
+
+[How To Create a New User and Grant Permissions in MySQL](https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql)
 ### Testing
 
 Recommended tool: [POSTMAN](https://www.getpostman.com/downloads/)
