@@ -1,20 +1,15 @@
 package com.example.dailybucket;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActivityManager;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
@@ -31,15 +26,6 @@ public class MainActivity extends AppCompatActivity {
         for (String pkgName : usageMap.keySet()) {
             Log.d(this.getClass().getCanonicalName(), pkgName);
         }
-
-        ListView listView = findViewById(R.id.listView);
-
-        MySimpleArrayAdapter mySimpleArrayAdapter = new MySimpleArrayAdapter(
-                this,
-                usageMap
-        );
-
-        listView.setAdapter(mySimpleArrayAdapter);
     }
 
 
