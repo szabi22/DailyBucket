@@ -1,21 +1,19 @@
-package com.petadev.backend;
+package com.petadev.backend.controller;
 
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.stmt.DeleteBuilder;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.UpdateBuilder;
-import com.j256.ormlite.table.TableUtils;
+import com.petadev.backend.controller.dao.DaoStore;
+import com.petadev.backend.entity.Comment;
+import com.petadev.backend.entity.Post;
 import com.petadev.backend.entity.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
-
-import static com.petadev.backend.ConnectionManager.getInstance;
 
 // Rest Controller is needed in order for spring to pick up this class.
 @RestController
@@ -28,47 +26,12 @@ public class StudentController {
     // We don't need a map anymore, since we are going to store entries in the database
     // Dao = DataAccessObject
     // what's between the <> tags is called generics.
-    private Dao<Student, Integer> studentDao;
+    private Dao<Student, Integer> studentDao = DaoStore.getStudentDao();
 
     // Constructor for the rest controller. Here we initialize the data that will be stored in memory by default
     // we add two Students, with two random ids.
     public StudentController() {
-        try {
-            // We have a global connection to the database
-            // this is what we use to connect to the database
-            final var connectionSource = getInstance().getConnectionSource();
 
-            // this is just for the sake of the example. I first drop the table to remove every entry from it,
-            // and the fill it up with arbitrary data.
-            // this should be replaced with TableUtils.createTableIfNotExists()
-            TableUtils.dropTable(connectionSource, Student.class, true);
-            TableUtils.createTable(connectionSource, Student.class);
-
-            // we initialize the Dao with the help of the built in command, using our connection
-            this.studentDao = DaoManager.createDao(connectionSource, Student.class);
-
-            // we fill up the database with arbitrary data
-            this.studentDao.create(
-                    new Student(
-                            "John",
-                            "Doe",
-                            "johndoe",
-                            new Date()
-                    )
-            );
-
-            this.studentDao.create(
-                    new Student(
-                            "Marry",
-                            "Doe",
-                            "marrydoe",
-                            new Date()
-                    )
-            );
-
-        } catch (SQLException e) {
-            LOG.error(e.getMessage());
-        }
     }
 
     // Here we handle a GET request on the /students endpoint
@@ -126,5 +89,15 @@ public class StudentController {
         deleteBuilder.where().eq("studentId", id);
         // we return the number of deleted users
         return deleteBuilder.delete();
+    }
+
+    @GetMapping("/students/{studentId}/comments")
+    public List<Comment> getUserComments(@PathVariable String studentId) throws SQLException {
+        return DaoStore.getCommentDao().queryForEq("student_id", studentId);
+    }
+
+    @GetMapping("/students/{studentId}/posts")
+    public List<Post> getUserPosts(@PathVariable String studentId) throws SQLException {
+        return DaoStore.getPostDao().queryForEq("student_id", studentId);
     }
 }

@@ -1,4 +1,4 @@
-package com.petadev.backend;
+package com.petadev.backend.connection;
 
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
@@ -7,12 +7,12 @@ import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
 
-import static com.petadev.backend.ConnectionConstants.*;
+import static com.petadev.backend.connection.ConnectionConstants.*;
 
 // this is called a singleton class
 // there will always only exist one instance in the memory
 // this is used when we want an object that we want to access in multiple classes
-final class ConnectionManager {
+public final class ConnectionManager {
     private static final Logger LOG = LoggerFactory.getLogger(ConnectionManager.class);
 
     // INSTANCE is private so it can be accessed only through the getInstance getter
@@ -28,11 +28,11 @@ final class ConnectionManager {
         }
     }
 
-    static ConnectionManager getInstance() {
+    public static ConnectionManager getInstance() {
         return INSTANCE;
     }
 
-    ConnectionSource getConnectionSource() {
+    public ConnectionSource getConnectionSource() {
         return this.connectionSource;
     }
 }

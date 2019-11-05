@@ -1,4 +1,4 @@
-package com.petadev.backend;
+package com.petadev.backend.connection;
 
 final class ConnectionConstants {
     static final String DATABASE = "dailybucket";
