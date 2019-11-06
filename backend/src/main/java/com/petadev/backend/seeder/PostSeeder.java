@@ -1,6 +1,5 @@
 package com.petadev.backend.seeder;
 
-import com.j256.ormlite.dao.Dao;
 import com.petadev.backend.DatabaseSeeder;
 import com.petadev.backend.controller.dao.DaoStore;
 import com.petadev.backend.entity.Post;
@@ -19,8 +18,8 @@ public class PostSeeder implements DatabaseSeeder {
         final var student2 = studentDao.queryForId(2);
 
         postDao.create(List.of(
-           new Post(student1, new Date(), "This is a very cool post!"),
-           new Post(student2, new Date(), "This is a very cool second post!")
+                new Post(student1, new Date(), "This is a very cool post!"),
+                new Post(student2, new Date(), "This is a very cool second post!")
         ));
     }
 }

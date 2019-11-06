@@ -2,7 +2,6 @@ package com.petadev.backend.controller;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.DeleteBuilder;
-import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.UpdateBuilder;
 import com.petadev.backend.controller.dao.DaoStore;
 import com.petadev.backend.entity.Comment;
