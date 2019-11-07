@@ -1,5 +1,9 @@
 Code is commented.
 
+### Database Diagram
+
+![Database Diagram](https://ibb.co/bQqq2TN "Database Diagram")
+
 ### Backend examples for Daily Bucket App
 
 1) First example: [REST API](https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f)  with [CRUD](https://www.codecademy.com/articles/what-is-crud) operations
