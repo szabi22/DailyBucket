@@ -2,7 +2,7 @@ Code is commented.
 
 ### Database Diagram
 
-![Database Diagram](https://ibb.co/bQqq2TN "Database Diagram")
+![Database Diagram](https://i.ibb.co/HB11x6G/Untitled-Diagram-1.png "Database Diagram")
 
 ### Backend examples for Daily Bucket App
 
