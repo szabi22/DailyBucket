@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         for (String pkgName : usageMap.keySet()) {
             Log.d(this.getClass().getCanonicalName(), pkgName);
         }
+
     }
 
 
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-
         return usageMap;
     }
 }
