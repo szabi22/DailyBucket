@@ -46,26 +46,26 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="190dp"
+        android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginBottom="137dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="130dp"
         app:srcCompat="@drawable/login" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="190dp"
+        android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="137dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="130dp"
         app:srcCompat="@drawable/register" />
 
 
