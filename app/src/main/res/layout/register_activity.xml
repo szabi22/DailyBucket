@@ -21,7 +21,9 @@
         android:layout_marginRight="220dp"
         android:layout_marginBottom="407dp"
         android:hint="@string/firstname"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large">
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black">
 
     </EditText>
 
@@ -35,7 +37,9 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="407dp"
         android:hint="@string/lastname"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large">
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black">
 
     </EditText>
 
@@ -53,7 +57,9 @@
         android:layout_marginRight="96dp"
         android:layout_marginBottom="331dp"
         android:hint="@string/email"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large">
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black">
 
     </EditText>
 
@@ -72,7 +78,9 @@
         android:layout_marginRight="183dp"
         android:layout_marginBottom="261dp"
         android:hint="@string/password1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -88,7 +96,9 @@
         android:layout_marginRight="186dp"
         android:layout_marginBottom="186dp"
         android:hint="@string/password2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -115,7 +125,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="131dp"
-        android:text="Chose profile picture" />
+        android:text="Chose profile picture"
+        android:textColor="@android:color/black" />
 
 
 </RelativeLayout>
