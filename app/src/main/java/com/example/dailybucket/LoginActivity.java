@@ -1,33 +1,55 @@
 package com.example.dailybucket;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
-    public void onCreate(Bundle savedInstanseState) {
-        super.onCreate(savedInstanseState);
-        setContentView(R.layout.login_activity);
-    }
-}
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-
-        @SuppressLint("WrongViewCast") Button button2 = findViewById(R.id.image2);
-        button2.setOnClickListener(this);
     }
 
-    @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.button2) {
-            Intent intent1 = new Intent(this, RegisterActivity.class);
-            startActivity(intent1);
+        Log.d(getClass().getCanonicalName(), "!@#$ pressed");
+        Intent intent1 = new Intent(this, RegisterActivity.class);
+        startActivity(intent1);
+
+    }
+
+    public void onLoginClick(View view) {
+        Log.d(getClass().getCanonicalName(), "!@#$ pressed222");
+
+        EditText editText1 = findViewById(R.id.etName);
+        EditText editText2 = findViewById(R.id.etPassword);
+        TextView hiba = findViewById(R.id.hiba1);
+
+        hiba.setVisibility(View.INVISIBLE);
+
+        String username = editText1.getText().toString();
+        String password = editText2.getText().toString();
+
+        AuthenticationManager.logIn(username, password);
+        if (AuthenticationManager.isLoggedIn()) {
+            Intent intent2 = new Intent(this, MainActivity.class);
+            startActivity(intent2);
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Hiba")
+                    .setMessage("Helytelen adatok")
+                    .show();
+
+
+            hiba.setVisibility(View.VISIBLE);
         }
+    }
+
+}
+

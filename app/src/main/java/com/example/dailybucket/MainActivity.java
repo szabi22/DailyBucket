@@ -21,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanseState);
         setContentView(R.layout.activity_main);
 
+        if (!AuthenticationManager.isLoggedIn()) {
+            Intent redirectToLoginActivityIntent = new Intent(this, LoginActivity.class);
+            startActivity(redirectToLoginActivityIntent);
+        }
+
         Map<String, String> usageMap = this.getUsageInTimeOfCurrentApp();
 
         for (String pkgName : usageMap.keySet()) {
             Log.d(this.getClass().getCanonicalName(), pkgName);
         }
-
     }
 
 

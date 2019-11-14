@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginbackground"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -45,7 +45,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <ImageView
-        android:id="@+id/image2"
+        android:id="@+id/image1"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"
@@ -54,10 +54,13 @@
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
         android:layout_marginBottom="130dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onLoginClick"
         app:srcCompat="@drawable/login" />
 
     <ImageView
-        android:id="@+id/image1"
+        android:id="@+id/image2"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_alignParentEnd="true"
@@ -66,7 +69,18 @@
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="130dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onClick"
         app:srcCompat="@drawable/register" />
+
+    <TextView
+        android:id="@+id/hiba1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Helytelen adatok"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>
