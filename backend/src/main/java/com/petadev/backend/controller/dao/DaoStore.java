@@ -5,6 +5,7 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.petadev.backend.controller.StudentController;
+import com.petadev.backend.entity.AuthorizationToken;
 import com.petadev.backend.entity.Comment;
 import com.petadev.backend.entity.Post;
 import com.petadev.backend.entity.Student;
@@ -21,6 +22,7 @@ public class DaoStore {
     private static Dao<Student, Integer> studentDao;
     private static Dao<Comment, Integer> commentDao;
     private static Dao<Post, Integer> postDao;
+    private static Dao<AuthorizationToken, Integer> authorizationTokenDao;
     private static ConnectionSource connectionSource = getInstance().getConnectionSource();
 
     public static Dao<Student, Integer> getStudentDao() {
@@ -63,5 +65,18 @@ public class DaoStore {
         }
 
         return postDao;
+    }
+
+    public static Dao<AuthorizationToken, Integer> getAuthorizationTokenDao() {
+        if (Objects.isNull(authorizationTokenDao)) {
+            try {
+                TableUtils.createTableIfNotExists(connectionSource, AuthorizationToken.class);
+                authorizationTokenDao = DaoManager.createDao(connectionSource, AuthorizationToken.class);
+            } catch (SQLException e) {
+                LOG.error("Error creating AuthorizationTokenDao\n " + e.getMessage() + " " + e.getSQLState());
+            }
+        }
+
+        return authorizationTokenDao;
     }
 }

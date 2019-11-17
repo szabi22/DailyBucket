@@ -1,15 +1,18 @@
 package com.petadev.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.springframework.data.annotation.Transient;
 
+import java.io.Serializable;
 import java.util.Date;
 
 // Student class, contains data which a student has
 // Because this class stores data, it must be final, so we cannot extend it by any means.
 // @DatabaseTable denotes that it will become a table in the mysql database when we create it
 @DatabaseTable(tableName = "students")
-public final class Student {
+public final class Student implements Serializable {
 
     // @DatabaseField denotes it that it will be stored in the database
     // generatedId means that studentId will be generated automatically, also incremented
@@ -29,6 +32,11 @@ public final class Student {
     @DatabaseField(canBeNull = false, unique = true)
     private String userName;
 
+    @JsonIgnore
+    @Transient
+    @DatabaseField(canBeNull = false)
+    private transient String passwordHash;
+
     @DatabaseField(canBeNull = false)
     private Date birthDate;
 
@@ -38,11 +46,16 @@ public final class Student {
 
 
     // constructor used by developer
-    public Student(final String firstName, final String lastName, final String userName, final Date birthDate) {
+    public Student(final String firstName,
+                   final String lastName,
+                   final String userName,
+                   final String passwordHash,
+                   final Date birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.birthDate = birthDate;
+        this.passwordHash = passwordHash;
     }
 
     // because fields are private, we need public getters. This way we can't modify our object run-time...
@@ -50,6 +63,10 @@ public final class Student {
 
     public Date getBirthDate() {
         return birthDate;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
     public String getFirstName() {
@@ -63,7 +80,6 @@ public final class Student {
     public String getUserName() {
         return userName;
     }
-
 
     public int getStudentId() {
         return studentId;
