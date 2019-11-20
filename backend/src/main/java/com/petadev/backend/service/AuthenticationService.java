@@ -2,7 +2,6 @@ package com.petadev.backend.service;
 
 import com.petadev.backend.controller.dao.DaoStore;
 import com.petadev.backend.entity.Student;
-import org.openjsse.net.ssl.OpenJSSE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCrypt;

@@ -1,5 +1,6 @@
 package com.petadev.backend.filter;
 
+import com.petadev.backend.entity.Student;
 import com.petadev.backend.service.TokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.Optional;
 
 import static com.petadev.backend.filter.AuthenticationFilterConstants.HEADER_NAME;
 
@@ -37,8 +39,14 @@ public class AuthenticationFilter implements Filter {
 
             try {
                 if (TokenService.isTokenValid(authHeader) && !isLoginRequest && !isRegisterRequest) {
-                    httpServletRequest.setAttribute("student", TokenService.getStudentByToken(authHeader));
-                    filterChain.doFilter(servletRequest, servletResponse);
+                    final var studentByToken = TokenService.getStudentByToken(authHeader);
+
+                    if (studentByToken.isPresent()) {
+                        httpServletRequest.setAttribute("student", studentByToken.get());
+                        filterChain.doFilter(servletRequest, servletResponse);
+                    } else {
+                        httpServletResponse.sendError(401, "Unauthorized!");
+                    }
                 } else {
                     httpServletResponse.sendError(401, "Unauthorized!");
                 }
