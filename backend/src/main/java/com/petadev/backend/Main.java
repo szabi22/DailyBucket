@@ -1,8 +1,6 @@
 package com.petadev.backend;
 
-import com.petadev.backend.seeder.CommentSeeder;
-import com.petadev.backend.seeder.PostSeeder;
-import com.petadev.backend.seeder.StudentSeeder;
+import com.petadev.backend.seeder.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -18,9 +16,17 @@ public class Main {
 
     public static void main(String... args) {
         runSeeders(List.of(
-                new StudentSeeder(),
+                new UserSeeder(),
+                new ApplicationSeeder(),
+                new ActivitySeeder(),
+                new UserActivitySeeder(),
+                new WIPUserActivitySeeder(),
+                new FinishedUserActivitySeeder(),
                 new PostSeeder(),
-                new CommentSeeder()
+                new CommentSeeder(),
+                new ReactionSeeder(),
+                new FriendRequestSeeder(),
+                new FriendShipSeeder()
         ));
         SpringApplication.run(Main.class, args);
     }
@@ -31,6 +37,7 @@ public class Main {
             try {
                 seeder.fillTable();
             } catch (SQLException e) {
+                e.printStackTrace();
                 LOG.error("Error running seeder " + seeder.getClass().getName() + "\n" + e.getMessage());
                 System.exit(1);
             }

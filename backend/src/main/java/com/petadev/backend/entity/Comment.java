@@ -5,16 +5,16 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Date;
 
-@DatabaseTable(tableName = "comments")
-public class Comment {
+@DatabaseTable(tableName = "Comments")
+public final class Comment {
     @DatabaseField(generatedId = true)
-    private int commentId;
+    private int commentId; // to-do: hianyzik a commentId getter.
 
     @DatabaseField(foreign = true)
     private Post post;
 
     @DatabaseField(foreign = true)
-    private Student student;
+    private User user;
 
     @DatabaseField(canBeNull = false)
     private String commentBody;
@@ -25,8 +25,8 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(final Student student, final Post post, final String commentBody, final Date dateCreated) {
-        this.student = student;
+    public Comment(final User user, final Post post, final String commentBody, final Date dateCreated) {
+        this.user = user;
         this.commentBody = commentBody;
         this.dateCreated = dateCreated;
         this.post = post;
@@ -40,8 +40,8 @@ public class Comment {
         return commentId;
     }
 
-    public Student getStudent() {
-        return student;
+    public User getUser() {
+        return user;
     }
 
     public String getCommentBody() {

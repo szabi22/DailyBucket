@@ -5,13 +5,13 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Date;
 
-@DatabaseTable(tableName = "posts")
-public class Post {
+@DatabaseTable(tableName = "Posts")
+public final class Post {
     @DatabaseField(generatedId = true)
     private int postId;
 
     @DatabaseField(canBeNull = false, foreign = true)
-    private Student student;
+    private User user;
 
     @DatabaseField(canBeNull = false)
     private Date createdAt;
@@ -22,8 +22,8 @@ public class Post {
     public Post() {
     }
 
-    public Post(final Student student, final Date createdAt, final String postBody) {
-        this.student = student;
+    public Post(final User user, final Date createdAt, final String postBody) {
+        this.user = user;
         this.createdAt = createdAt;
         this.postBody = postBody;
     }
@@ -32,8 +32,8 @@ public class Post {
         return postId;
     }
 
-    public Student getStudent() {
-        return student;
+    public User getUser() {
+        return user;
     }
 
     public Date getCreatedAt() {

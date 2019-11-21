@@ -8,7 +8,7 @@ import java.util.Date;
 // Student class, contains data which a student has
 // Because this class stores data, it must be final, so we cannot extend it by any means.
 // @DatabaseTable denotes that it will become a table in the mysql database when we create it
-@DatabaseTable(tableName = "students")
+@DatabaseTable(tableName = "Students")
 public final class Student {
 
     // @DatabaseField denotes it that it will be stored in the database

@@ -20,3 +20,4 @@ public class CommentController {
         return DaoStore.getCommentDao().queryForId(commentId);
     }
 }
+//mashol meg csak ennyi van

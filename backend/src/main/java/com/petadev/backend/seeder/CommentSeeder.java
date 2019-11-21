@@ -12,17 +12,17 @@ public class CommentSeeder implements DatabaseSeeder {
     @Override
     public void fillTable() throws SQLException {
         final var commentDao = DaoStore.getCommentDao();
-        final var studentDao = DaoStore.getStudentDao();
+        final var userDao = DaoStore.getUserDao();
         final var postDao = DaoStore.getPostDao();
 
-        final var student2 = studentDao.queryForId(2);
+        final var user2 = userDao.queryForId(2);
         final var post1 = postDao.queryForId(1);
 
         System.out.println(commentDao);
 
         commentDao.create(List.of(
                 new Comment(
-                        student2,
+                        user2,
                         post1,
                         "Comment on this post!",
                         new Date()
