@@ -22,10 +22,6 @@ public class PostController {
     private static final Logger LOG = LoggerFactory.getLogger(PostController.class);
 
     @GetMapping("/posts/{postId}")
-    public Post getPostById(@PathVariable Integer postId) throws SQLException {
-        return DaoStore.getPostDao().queryForId(postId);
-    }
-    @GetMapping("/posts/{postId}")
     public Post getPostById(@PathVariable Integer postId, final @RequestAttribute User user, HttpServletResponse response) throws SQLException {
         final var post = DaoStore.getPostDao().queryForId(postId);
 
@@ -45,7 +41,6 @@ public class PostController {
         response.setStatus(returnCode);
         return returnVal;
     }
-
 
     @GetMapping("/posts/{postId}/comments")
     public List<Comment> getCommentsOfPost(@PathVariable Integer postId, HttpServletRequest request) throws SQLException {

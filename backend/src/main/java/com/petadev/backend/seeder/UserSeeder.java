@@ -25,7 +25,7 @@ public class UserSeeder implements DatabaseSeeder {
                                 "johndoe",
                                 new Date(),
                                 new Date(),
-                                "sanyika3435",
+                                passwordHash,
                                 10
                         ),
                         new User(
@@ -34,7 +34,7 @@ public class UserSeeder implements DatabaseSeeder {
                                 "marrydoe",
                                 new Date(),
                                 new Date(),
-                                "nemtudodajelszom132",
+                                passwordHash,
                                 15
 
                         )
