@@ -32,7 +32,7 @@ public class PostController {
             if (isUsersPost(user, post) || isUsersFriendPost(user, post)) {
                 returnVal = post;
             } else {
-                returnCode = 403;
+                returnCode = 401;
             }
         } else {
             returnCode = 404;
@@ -41,6 +41,7 @@ public class PostController {
         response.setStatus(returnCode);
         return returnVal;
     }
+
 
     @GetMapping("/posts/{postId}/comments")
     public List<Comment> getCommentsOfPost(@PathVariable Integer postId, HttpServletRequest request) throws SQLException {

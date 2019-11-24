@@ -39,22 +39,24 @@ public class AuthenticationFilter implements Filter {
                 if (TokenService.isTokenValid(authHeader) && !isLoginRequest && !isRegisterRequest) {
                     final var userByToken = TokenService.getUserByToken(authHeader);
                     if (userByToken.isPresent()) {
-                        httpServletRequest.setAttribute("student", userByToken.get());
+                        httpServletRequest.setAttribute("user", userByToken.get());
                         filterChain.doFilter(servletRequest, servletResponse);
                     } else {
                         httpServletResponse.sendError(401, "Unauthorized!");
-                    } } else {
-                        httpServletResponse.sendError(401, "Unauthorized!");
                     }
-                } catch(SQLException e){
-                    LOG.error(e.getMessage());
-                    httpServletResponse.sendError(500);
+                } else {
+                    httpServletResponse.sendError(401, "Unauthorized!");
                 }
+            } catch (SQLException e) {
+                LOG.error(e.getMessage());
+                httpServletResponse.sendError(500);
             }
-
         }
+
+    }
+
     @Override
     public void destroy() {
 
     }
-        }
+}
