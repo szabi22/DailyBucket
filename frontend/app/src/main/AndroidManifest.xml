@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.petadev.dailybucket">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -7,19 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
+
         <activity
-            android:name="com.petadev.dailybucket.LoginActivity"
-            android:label="Login">
+            android:name="com.petadev.dailybucket.activity.LoginActivity"
+            android:label="Daily Bucket">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.petadev.dailybucket.RegisterActivity"
-            android:label="Login">
-
-        </activity>
+            android:name="com.petadev.dailybucket.activity.RegisterActivity"
+            android:label="Register" />
+        <activity
+            android:name="com.petadev.dailybucket.activity.AppSelectActivity"
+            android:label="App select activity" />
+        <activity
+            android:name="com.petadev.dailybucket.activity.TimeLimitActivity"
+            android:label="Time limit activity" />
+        <activity
+            android:name="com.petadev.dailybucket.activity.MainActivity"
+            android:label="Main activity" />
     </application>
+
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

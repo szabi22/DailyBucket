@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "242468177190",
+    "firebase_url": "https://daily-bucket-aea82.firebaseio.com",
+    "project_id": "daily-bucket-aea82",
+    "storage_bucket": "daily-bucket-aea82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242468177190:android:404846f466bfa6cc19ede7",
+        "android_client_info": {
+          "package_name": "com.petadev.dailybucket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242468177190-cjf52p8v7al5qdk220ee6365fq70nt3u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.petadev.dailybucket",
+            "certificate_hash": "ed9a9f6198b72908b26d2277dbadbf08f7cfb996"
+          }
+        },
+        {
+          "client_id": "242468177190-l3ecli6v291r78kin1vb5abksqdednev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeONl3SlHQ5BMFIVkvW4l2LyTgHstKdcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242468177190-l3ecli6v291r78kin1vb5abksqdednev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

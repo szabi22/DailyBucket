@@ -1,22 +1,18 @@
-package com.petadev.dailybucket;
+package com.petadev.dailybucket.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.petadev.dailybucket.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText emailInput;
@@ -50,14 +46,13 @@ public class LoginActivity extends AppCompatActivity {
             this.firebaseAuth.signInWithEmailAndPassword(
                     email.toString(),
                     password.toString()
-            ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Authentication succeeded!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Authentication failed!", Toast.LENGTH_SHORT).show();
-                    }
+            ).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(LoginActivity.this, "Authentication succeeded!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(LoginActivity.this, "Authentication failed!", Toast.LENGTH_SHORT).show();
                 }
             });
         }

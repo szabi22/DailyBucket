@@ -4,4 +4,14 @@
     <string name="no_account_yet_create_one">No account yet? Create one</string>
     <string name="password_input_hint">Password</string>
     <string name="email_input_hint">Email</string>
+    <string name="apps_found_on_device">Apps we found on your device</string>
+    <string name="apps_to_overview">Please select the ones you want to overview!</string>
+    <string name="next">Next</string>
+    <string name="used_app_time">You used these apps for ${time} today!</string>
+    <string name="good_starting_point">Select a value which you think is a good starting point.</string>
+    <string name="finish">Finish up</string>
+    <string name="post_body_placeholder">Post text</string>
+    <string name="post_title_placeholder">Title</string>
+    <string name="post_date_placeholder">Posted at 2018-06-15</string>
+    <string name="user_full_name_placeholder">John Doe</string>
 </resources>
