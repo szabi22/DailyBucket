@@ -9,8 +9,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +16,6 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
-    private final Object MenuItem
-    BottomAppBar bar = findViewById(R.id.bar);
 
     @Override
     public void onCreate(Bundle savedInstanseState) {
@@ -71,36 +67,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return usageMap;
     }
-
-    BottomAppBar bar = findViewById(R.id.bar);
-
-bar.setOnMenuItemClickListener(new
-    BottomAppBar bar = findViewById(R.id.bar);)
-
-    public MainActivity(Object menuItem) {
-        MenuItem = menuItem;
-    }
-
-    MainActivity() {
-
-        @Override
-        public boolean onMenuItemClick (android.view.MenuItem) Object Object item;
-        Object itcem;
-        item){
-            // Handle actions based on the menu item
-            boolean b = true;
-
-            return b;
-        }
-    }
-
-    setSupportActionBar(bar);
-bar.setNavigationOnClickListener(new
-
-    OnClickListener() {
-        @Override
-        public void onClick (View v){
-            // Handle the navigation click by showing a BottomDrawer etc.
-        }
-    })
 }
