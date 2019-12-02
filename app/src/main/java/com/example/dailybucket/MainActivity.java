@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,7 +20,7 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private MenuItem menuItem;
 
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         for (String pkgName : usageMap.keySet()) {
             Log.d(this.getClass().getCanonicalName(), pkgName);
         }
+
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(this);
     }
 
     public void openActivity(View view) {
@@ -70,5 +75,33 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             }
         }
         return usageMap;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment = null;
+
+        switch (menuItem.getItemId()) {
+            case R.id.navigation_profile:
+                fragment = new UserProfileFragment();
+                break;
+
+            case R.id.navigation_home:
+                fragment = new SearchFragment();
+                break;
+        }
+
+        return loadFragment(fragment);
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }
