@@ -17,12 +17,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".BottomNavigation"
+            android:name=".BottomNavigationActivity"
             android:label="@string/title_activity_bottom_navigation"></activity>
-        <activity
-            android:name=".SideMenu"
-            android:label="@string/title_activity_side_menu"
-            android:theme="@style/NoActionBar" />
         <activity
             android:name=".MainActivity"
             tools:ignore="WrongManifestParent">
@@ -38,6 +34,7 @@
         <activity
             android:name=".RegisterActivity"
             tools:ignore="WrongManifestParent" />
+        <activity android:name=".BottomNavigationActivity$BottomNavigationActivity" />
     </application>
 
 </manifest>
