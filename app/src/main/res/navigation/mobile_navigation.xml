@@ -3,23 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home"
-    tools:ignore="UnusedNavigation">
+    app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.dailybucket.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.example.dailybucket.UserProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/userprofile"/>
-    <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.example.dailybucket.SearchFragment"
-        android:label="@string/search"
-        tools:layout="@layout/search"/>
-
+        android:id="@+id/nav_gallery"
+        android:name="com.example.dailybucket.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
 </navigation>

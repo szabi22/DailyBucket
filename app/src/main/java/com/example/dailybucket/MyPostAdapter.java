@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 
-public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.MyPostViewHolder> {
+public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
 
     private Context mContext;
     private int[] mPost;

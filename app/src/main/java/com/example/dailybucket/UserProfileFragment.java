@@ -31,9 +31,7 @@ public class UserProfileFragment extends Fragment {
         GridLayoutManager mGridLayoutManager;
         mGridLayoutManager = new GridLayoutManager(getContext(), 3);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-
-        mPostList = new int[]{R.drawable.clujnapoca, R.drawable.bucharest, R.drawable.budapest, R.drawable.london, R.drawable.seoul, R.drawable.sydney,
-                R.drawable.tokyo, R.drawable.la};
+        
 
         //mPostList = new int[0];
 

@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.dailybucket.ui.gallery.GalleryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
@@ -23,6 +28,8 @@ import java.util.TreeMap;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private MenuItem menuItem;
+    private Object GalleryFragment;
+    private Object SettingsFragment;
 
     @Override
     public void onCreate(Bundle savedInstanseState) {
@@ -108,4 +115,41 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
         return false;
     }
+    protected void onSideMenu(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        FrameLayout MainFragment = (FrameLayout) findViewById(R.id.navigation_home);
+        BottomNavigationView mMainNav = (BottomNavigationView) findViewById(R.id.nav_home);
+
+        GalleryFragment         =   new GalleryFragment();
+        SettingsFragment     =   new SettingsFragment();
+
+         = findViewById(R.id.a);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.activity_main,new HomeFragment()).commit();
+
+        mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()) {
+                    case R.id.navigation_home:
+                        setFragment(homeFragment);
+                        return true;
+
+                    case R.id.navigation_settings:
+                        SideMenu.openDrawer(GravityCompat.END);
+                        return true;
+
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        BottomNavigationView navView = findViewById(R.id.act);
+        navView.setItemIconTintList(null);
 }
