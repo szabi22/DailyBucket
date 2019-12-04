@@ -16,9 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".BottomNavigationActivity"
-            android:label="@string/title_activity_bottom_navigation"></activity>
+
         <activity
             android:name=".MainActivity"
             tools:ignore="WrongManifestParent">
@@ -34,7 +32,8 @@
         <activity
             android:name=".RegisterActivity"
             tools:ignore="WrongManifestParent" />
-        <activity android:name=".BottomNavigationActivity$BottomNavigationActivity" />
+        <activity
+            android:name=".DetailActivity"/>
     </application>
 
 </manifest>

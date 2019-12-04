@@ -1,4 +1,4 @@
-package com.example.dailybucket.ui.home;
+package com.example.dailybucket;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

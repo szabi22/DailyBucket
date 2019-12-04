@@ -1,4 +1,4 @@
-package com.example.dailybucket.ui.home;
+package com.example.dailybucket;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

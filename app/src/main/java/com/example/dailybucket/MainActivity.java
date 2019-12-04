@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
+        navigation.setSelectedItemId(R.id.navigation_home);
     }
 
     public void openActivity(View view) {
@@ -78,17 +79,20 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
 
-        switch (menuItem.getItemId()) {
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                fragment = new HomeFragment();
+                break;
             case R.id.navigation_profile:
                 fragment = new UserProfileFragment();
                 break;
-
-            case R.id.navigation_home:
+            case R.id.navigation_search:
                 fragment = new SearchFragment();
                 break;
+
         }
 
         return loadFragment(fragment);
