@@ -6,34 +6,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
 
     private Context mContext;
-    private int[] mPost;
+    private List<Post> posts;
 
-    public class MyPostViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView mPost;
-
-        private MyPostViewHolder(View itemView) {
-            super(itemView);
-
-            mPost = itemView.findViewById(R.id.mypost);
-        }
-
-        private void bind(int postImage) {
-            mPost.setImageResource(postImage);
-        }
-    }
-
-    public MyPostAdapter(Context mContext, int[] mPostList) {
+    public MyPostAdapter(Context mContext, List<Post> posts) {
         this.mContext = mContext;
-        this.mPost = mPostList;
-
+        this.posts = posts;
     }
 
     @Override
@@ -45,13 +34,13 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
 
     @Override
     public void onBindViewHolder(final MyPostViewHolder holder, int position) {
-        holder.bind(mPost[position]);
+        holder.bind(this.posts.at(position));
 
         holder.mPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext, DetailActivity.class);
-                mIntent.putExtra("Image", mPost[holder.getAdapterPosition()]);
+                mIntent.putExtra("Image",([holder.getAdapterPosition()]);
                 mContext.startActivity(mIntent);
             }
         });
@@ -59,6 +48,24 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mPost.length;
+        return posts.size();
+    }
+
+    public class MyPostViewHolder extends RecyclerView.ViewHolder {
+
+        private ImageView postImage;
+        private TextView postTitle;
+
+        private MyPostViewHolder(View itemView) {
+            super(itemView);
+
+            postImage = itemView.findViewById(R.id.mypost);
+            postTitle = itemView.findViewById(R.id.postTitle);
+        }
+
+        private void bind(Post post) {
+            postImage.setImageResource(post.getPostImage());
+            postTitle.setText(post.getPostTitle());
+        }
     }
 }

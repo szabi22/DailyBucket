@@ -1,7 +1,7 @@
 package com.example.dailybucket;
 
 public final class AuthenticationManager {
-    private static boolean LOGGED_IN = false;
+    private static boolean LOGGED_IN = true;
 
     public static void logIn(String username, String password) {
         if (username.equals("username") && password.equals("password")) {

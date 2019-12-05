@@ -3,6 +3,7 @@
     <color name="colorMain">#13C42B</color>
     <color name="colorWhite">@android:color/white</color>
     <color name="colorBlack">@android:color/black</color>
-    <color name="colorNavIcon">	#04110F</color>
+    <color name="colorNavIcon">#04110F</color>
     <color name="colorNavText">#01294b</color>
+    <color name="colorPrimaryDark">#04110F</color>
 </resources>

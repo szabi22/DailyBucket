@@ -7,16 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.dailybucket.ui.gallery.GalleryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
@@ -28,8 +25,7 @@ import java.util.TreeMap;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private MenuItem menuItem;
-    private Object GalleryFragment;
-    private Object SettingsFragment;
+    private DrawerLayout drawerLayout;
 
     @Override
     public void onCreate(Bundle savedInstanseState) {
@@ -50,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         navigation.setSelectedItemId(R.id.navigation_home);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
     }
 
     public void openActivity(View view) {
@@ -89,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
 
+        Log.d(getClass().getCanonicalName(), drawerLayout + "");
+
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 fragment = new HomeFragment();
@@ -98,6 +98,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case R.id.navigation_search:
                 fragment = new SearchFragment();
+                break;
+            case R.id.navigation_options:
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                    drawerLayout.bringToFront();
+                }
+                break;
+            case R.id.navigation_tasks:
+                fragment = new TasksFragment();
                 break;
 
         }
@@ -115,41 +126,4 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
         return false;
     }
-    protected void onSideMenu(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        FrameLayout MainFragment = (FrameLayout) findViewById(R.id.navigation_home);
-        BottomNavigationView mMainNav = (BottomNavigationView) findViewById(R.id.nav_home);
-
-        GalleryFragment         =   new GalleryFragment();
-        SettingsFragment     =   new SettingsFragment();
-
-         = findViewById(R.id.a);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.activity_main,new HomeFragment()).commit();
-
-        mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-                switch (menuItem.getItemId()) {
-                    case R.id.navigation_home:
-                        setFragment(homeFragment);
-                        return true;
-
-                    case R.id.navigation_settings:
-                        SideMenu.openDrawer(GravityCompat.END);
-                        return true;
-
-                    default:
-                        return false;
-                }
-            }
-        });
-
-        BottomNavigationView navView = findViewById(R.id.act);
-        navView.setItemIconTintList(null);
 }
