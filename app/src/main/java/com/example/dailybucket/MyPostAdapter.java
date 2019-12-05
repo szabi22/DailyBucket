@@ -34,18 +34,20 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
 
     @Override
     public void onBindViewHolder(final MyPostViewHolder holder, int position) {
-        holder.bind(this.posts.at(position));
+        holder.bind(posts.get(position)); // na legalabb itt6
 
-        holder.mPost.setOnClickListener(new View.OnClickListener() {
+        holder.postImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext, DetailActivity.class);
-                mIntent.putExtra("Image",([holder.getAdapterPosition()]);
-                mContext.startActivity(mIntent);
+                mIntent.putExtra("Image",posts.get(holder.getAdapterPosition())); // nice megrosszabb lett 4444466 miert kell a get oda??
+                mContext.startActivity(mIntent);//mi a szep elet????  mit csinalna ez pontosabban? feltolti az activityt psotokkal azt hiszem
             }
         });
     }
-
+//kocsog ez a programozas :((444444444
+    // kell menjek meg irok este szia\
+    //TED BE TOLTENI TESSS itt mi a foss van ?? amugy ennek nincs loginja?? ez valami mas i guess ennek kellene legyen
     @Override
     public int getItemCount() {
         return posts.size();
@@ -61,11 +63,11 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
 
             postImage = itemView.findViewById(R.id.mypost);
             postTitle = itemView.findViewById(R.id.postTitle);
-        }
+        }//meg ezt FERi fent vanvan
 
         private void bind(Post post) {
             postImage.setImageResource(post.getPostImage());
             postTitle.setText(post.getPostTitle());
-        }
+        }//ezt
     }
 }
