@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         startActivity(intent);
     }
 
+    // ez a 6 (a main nem, ebbe csak irunk :)) ) jogos oksa hat akkor programozzunkcl dolog tartozik hozza, es ez nem a postos meg, hanem s sajat oldal es a recyclerviewba a sajat kepeid vanak
+    // innen gondolom boldogulok koszi szepen es szep estet . nincs mit, neked is, es esetleg nyist ki a peldat amit kuldtem h nezd meg mi nem olyan mint ott mert az mukodik is az peeddig hol vaN?
     public Map<String, String> getUsageInTimeOfCurrentApp() {
         Map<String, String> usageMap = new HashMap<>();
 

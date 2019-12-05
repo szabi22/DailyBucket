@@ -14,7 +14,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.register_activity);
     }
 
-    public void onRegisterClick(final View view) {
+    public void onRegisterClick1(final View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
