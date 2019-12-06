@@ -5,14 +5,19 @@ import android.app.usage.UsageStatsManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -125,5 +130,37 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             return true;
         }
         return false;
+    }
+    public class PostFragment extends Fragment {
+        RecyclerView mRecyclerView;
+        //List<Post> mPostList;
+        int[]mPostList;
+        public PostFragment() {
+        }
+
+        @Nullable
+        @Override
+        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.activity_main, container, false);
+        }
+
+        @Nullable
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            mRecyclerView = getView().findViewById(R.id.feed);
+            GridLayoutManager mGridLayoutManager;
+            mGridLayoutManager = new GridLayoutManager(getContext(), 3);
+            mRecyclerView.setLayoutManager(mGridLayoutManager);
+            mPostList = new int[]{R.drawable.clujnapoca, R.drawable.bucharest, R.drawable.budapest, R.drawable.london, R.drawable.seoul, R.drawable.sydney,
+                    R.drawable.tokyo, R.drawable.la};
+            //mPostList.get(0).setPostImage(R.drawable.clujnapoca);
+            //mPostList.get(1).setPostImage(R.drawable.bucharest);
+
+
+            //List<Post> valtozo = new ArrayList<>();
+            //valtozo.add(new Post());
+            PostAdapter myAdapter = new PostAdapter(getContext(),mPostList);
+            mRecyclerView.setAdapter(myAdapter);
+        }
     }
 }

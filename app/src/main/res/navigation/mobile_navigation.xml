@@ -4,10 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.dailybucket.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
 </navigation>

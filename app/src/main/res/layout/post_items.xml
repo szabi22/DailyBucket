@@ -17,27 +17,32 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginEnd="262dp"
-        android:layout_marginRight="262dp"
-        android:layout_marginBottom="676dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:text="TextView" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="93dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="457dp"
-        android:layout_marginEnd="197dp"
-        android:layout_marginRight="197dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
         android:text="AutoCompleteTextView" />
 
     <ImageView
@@ -51,13 +56,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="336dp"
-        android:layout_marginRight="336dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="327dp"
+        android:layout_marginRight="327dp"
         android:layout_marginBottom="664dp"
         tools:srcCompat="@tools:sample/avatars" />
+
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
@@ -65,8 +71,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginBottom="179dp"
         app:srcCompat="@android:drawable/star_off" />
 

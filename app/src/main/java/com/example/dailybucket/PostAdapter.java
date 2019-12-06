@@ -39,14 +39,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(mContext, DetailActivity.class);
-                mIntent.putExtra("Image",posts[holder.getAdapterPosition()]); // miert nem ad olyat h getpostimage? ezek meg kellene legyenek irva valahova?44
-                mContext.startActivity(mIntent);//mi a szep elet????  mit csinalna ez pontosabban? feltolti az activityt psotokkal azt hiszem
+                mIntent.putExtra("Image",posts[holder.getAdapterPosition()]);
+                mContext.startActivity(mIntent);
             }
         });
     }
-    //kocsog ez a programozas :((444444444
-    // kell menjek meg irok este szia\
-    //TED BE TOLTENI TESSS itt mi a foss van ?? amugy ennek nincs loginja?? ez valami mas i guess ennek kellene legyen
     @Override
     public int getItemCount() {
         return posts.length;
@@ -66,7 +63,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
         private void bind(int post) {
             postImage.setImageResource(post);
-            //postTitle.setText(post.getPostTitle());//ez most nem kell ugye?lassuk ha e nelkul megy
-        }//ezt
+           // postTitle.setText(post.getPostTitle());
+        }
     }
 }

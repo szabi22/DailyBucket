@@ -34,12 +34,8 @@ public class UserProfileFragment extends Fragment {
         GridLayoutManager mGridLayoutManager;
         mGridLayoutManager = new GridLayoutManager(getContext(), 3);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-
-        //mPostList = new int[0]; /// s ez nem kell ez csak ures volt, ehelyett kell a drawables tomb
-        // itt kellene betenni a kepeket a userprofilehoz
-        // a post is recyclerviewvel mukodik? ugy tudom pill vagy nem is ez mas gep whoops
         mPostList = new int[]{R.drawable.clujnapoca, R.drawable.bucharest, R.drawable.budapest, R.drawable.london, R.drawable.seoul, R.drawable.sydney,
-                R.drawable.tokyo, R.drawable.la}; /// igy kell kepeket, s be kell oket tenni a darawableba
+                R.drawable.tokyo, R.drawable.la};
         //mPostList.get(0).setPostImage(R.drawable.clujnapoca);
         //mPostList.get(1).setPostImage(R.drawable.bucharest);
 
