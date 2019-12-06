@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="Name" />
+                android:text="Macalik Borbála" />
 
             <EditText
                 android:id="@+id/user_bio_profile"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start|top"
                 android:enabled="false"
-                android:text="Bio" />
+                android:text="Szervusztok, én Bori vagyok" />
 
         </LinearLayout>
 

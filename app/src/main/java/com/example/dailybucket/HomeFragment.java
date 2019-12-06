@@ -34,32 +34,32 @@ public class HomeFragment extends Fragment {
         GridLayoutManager mGridLayoutManager;
         mGridLayoutManager = new GridLayoutManager(getContext(), 1);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-        int[] mPostList = new int[]{R.drawable.clujnapoca, R.drawable.bucharest, R.drawable.budapest, R.drawable.london, R.drawable.seoul, R.drawable.sydney,
-                R.drawable.tokyo, R.drawable.la};
+        int[] mPostList = new int[]{R.drawable.a1, R.drawable.a2, R.drawable.a3, R.drawable.a4, R.drawable.a5, R.drawable.a6,
+                R.drawable.a7, R.drawable.a8};
 
         String[] postTitleList = new String[]{
-                "This is a post!",
-                "This is a second post!",
-                "This is a post again!",
-                "Wow, such a wonderful post!",
-                "Mom, I'm on facebook!",
-                "This is a post again!",
-                "This is a post again!",
-                "This is a post again!"
+                "Sátorozz az osztályban",
+                "Lesd meg a naplementét",
+                "Tábortűz",
+                "Twister délután",
+                "Probalj ki egy új stílust",
+                "Barátkozz meg egy külföldivel",
+                "Selfiz egyet",
+                "Billiárd est"
         };
 
         String[] postBodyList = new String[]{
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices laoreet ipsum, in tempus nulla gravida sit amet.",
-                "Aliquam rhoncus magna nec mattis fermentum. In non porta justo, in congue mauris.",
-                "Nullam sit amet lectus sed tellus dapibus convallis. Fusce malesuada tellus vitae libero pharetra, sed mollis diam consequat.",
-                "Phasellus in cursus erat, quis pulvinar enim. Quisque imperdiet nunc sed mauris dictum, non rutrum urna vehicula.",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices laoreet ipsum, in tempus nulla gravida sit amet.",
-                "Aliquam rhoncus magna nec mattis fermentum. In non porta justo, in congue mauris.",
-                "Nullam sit amet lectus sed tellus dapibus convallis. Fusce malesuada tellus vitae libero pharetra, sed mollis diam consequat.",
-                "Phasellus in cursus erat, quis pulvinar enim. Quisque imperdiet nunc sed mauris dictum, non rutrum urna vehicula."
+                "Hűha! Majdnem a magaviseletünk bánta",
+                "Életem legszebb naplementéje",
+                "Éneklés a tábortűz körül. Remek volt!",
+                "Nyaktekerészeti mellfekvenc",
+                "Ezentúl ilyen szemüvegeket fogok horDANI",
+                "Konicsivá",
+                "hmmm",
+                "hole in one"
         };
 
-        MyPostAdapter myAdapter = new MyPostAdapter(getContext(), mPostList, postTitleList, postBodyList);
+        PostAdapter myAdapter = new PostAdapter(getContext(), mPostList, postTitleList, postBodyList);
         mRecyclerView.setAdapter(myAdapter);
     }
 }

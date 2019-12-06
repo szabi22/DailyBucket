@@ -19,13 +19,10 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
     private Context mContext;
     //private List<Post> posts;
     private int[] posts;
-    private String[] postTitles;
-    private String[] postBodies;
 
-    public MyPostAdapter(Context mContext, int[] posts, String[] postTitles, String[] postBodies) {
+
+    public MyPostAdapter(Context mContext, int[] posts) {
         this.mContext = mContext;
-        this.postBodies = postBodies;
-        this.postTitles = postTitles;
         this.posts = posts;
     }
 
@@ -38,7 +35,7 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
 
     @Override
     public void onBindViewHolder(final MyPostViewHolder holder, int position) {
-        holder.bind(posts[position], postTitles[position], postBodies[position]); // na legalabb itt6
+        holder.bind(posts[position]); // na legalabb itt6
 
         holder.postImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,21 +54,16 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
     public class MyPostViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView postImage;
-        private TextView postTitleView;
-        private TextView postBodyView;
 
 
         private MyPostViewHolder(View itemView) {
             super(itemView);
             postImage = itemView.findViewById(R.id.mypost);
-            postTitleView = itemView.findViewById(R.id.mypost_title);
-            postBodyView = itemView.findViewById(R.id.mypost_post);
         }
 
-        private void bind(int postImageId, String postTitle, String postBody) {
+        private void bind(int postImageId) {
             postImage.setImageResource(postImageId);
-            postTitleView.setText(postTitle);
-            postBodyView.setText(postBody);
+
         }
     }
 }

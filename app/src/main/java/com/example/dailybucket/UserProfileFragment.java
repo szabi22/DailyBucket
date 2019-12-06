@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class UserProfileFragment extends Fragment {
     RecyclerView mRecyclerView;
     //List<Post> mPostList;
-    int[] mPostList;
+    int[] mMyPostList;
 
     public UserProfileFragment() {
     }
@@ -41,37 +41,12 @@ public class UserProfileFragment extends Fragment {
         GridLayoutManager mGridLayoutManager;
         mGridLayoutManager = new GridLayoutManager(getContext(), 3);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-        mPostList = new int[]{R.drawable.clujnapoca, R.drawable.bucharest, R.drawable.budapest, R.drawable.london, R.drawable.seoul, R.drawable.sydney,
-                R.drawable.tokyo, R.drawable.la};
-
-        String[] postTitleList = new String[]{
-                "This is a post!",
-                "This is a second post!",
-                "This is a post again!",
-                "Wow, such a wonderful post!",
-                "Mom, I'm on facebook!",
-                "This is a post again!",
-                "This is a post again!",
-                "This is a post again!"
-        };
-
-        String[] postBodyList = new String[]{
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices laoreet ipsum, in tempus nulla gravida sit amet.",
-                "Aliquam rhoncus magna nec mattis fermentum. In non porta justo, in congue mauris.",
-                "Nullam sit amet lectus sed tellus dapibus convallis. Fusce malesuada tellus vitae libero pharetra, sed mollis diam consequat.",
-                "Phasellus in cursus erat, quis pulvinar enim. Quisque imperdiet nunc sed mauris dictum, non rutrum urna vehicula.",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices laoreet ipsum, in tempus nulla gravida sit amet.",
-                "Aliquam rhoncus magna nec mattis fermentum. In non porta justo, in congue mauris.",
-                "Nullam sit amet lectus sed tellus dapibus convallis. Fusce malesuada tellus vitae libero pharetra, sed mollis diam consequat.",
-                "Phasellus in cursus erat, quis pulvinar enim. Quisque imperdiet nunc sed mauris dictum, non rutrum urna vehicula."
-        };
-        //mPostList.get(0).setPostImage(R.drawable.clujnapoca);
-        //mPostList.get(1).setPostImage(R.drawable.bucharest);
+        mMyPostList = new int[]{R.drawable.a1, R.drawable.a2, R.drawable.a3, R.drawable.a4, R.drawable.a5, R.drawable.a6,
+                R.drawable.a7, R.drawable.a8};
 
 
-        //List<Post> valtozo = new ArrayList<>();
-        //valtozo.add(new Post());
-        MyPostAdapter myAdapter = new MyPostAdapter(getContext(), mPostList, postTitleList, postBodyList);
+
+        MyPostAdapter myAdapter = new MyPostAdapter(getContext(), mMyPostList);
         mRecyclerView.setAdapter(myAdapter);
     }
 }

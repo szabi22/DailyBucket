@@ -9,31 +9,36 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {//ide mik is kellenk?a kep es meg mi?
+import java.util.ArrayList;
+import java.util.List;
+
+public class PostAdapter extends Adapter<PostAdapter.PostViewHolder> {
 
     private Context mContext;
     //private List<Post> posts;
     private int[] posts;
-    private String[]  name;
-    private int[] image;
+    private String[] postTitles;
+    private String[] postBodies;
 
-
-    public PostAdapter(Context mContext, int[] posts) {
+    public PostAdapter(Context mContext, int[] posts, String[] postTitles, String[] postBodies) {
         this.mContext = mContext;
+        this.postBodies = postBodies;
+        this.postTitles = postTitles;
         this.posts = posts;
     }
 
     @Override
-    public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.myposts_item,
+    public PostAdapter.PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_items,
                 parent, false);
-        return new PostAdapter.PostViewHolder(view);
+        return new PostViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final PostAdapter.PostViewHolder holder, int position) {
-        holder.bind(posts[position]); // na legalabb itt6
+    public void onBindViewHolder(final PostViewHolder holder, int position) {
+        holder.bind(posts[position], postTitles[position], postBodies[position]); // na legalabb itt6
 
         holder.postImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,18 +57,21 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     public class PostViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView postImage;
-        private TextView postTitle;
+        private TextView postTitleView;
+        private TextView postBodyView;
+
 
         private PostViewHolder(View itemView) {
             super(itemView);
+            postImage = itemView.findViewById(R.id.post_image);
+            postTitleView = itemView.findViewById(R.id.post_title);
+            postBodyView = itemView.findViewById(R.id.post_post);
+        }
 
-            postImage = itemView.findViewById(R.id.mypost);
-            postTitle = itemView.findViewById(R.id.postTitle);
-        }//meg ezt FERi fent vanvan
-
-        private void bind(int post) {
-            postImage.setImageResource(post);
-           // postTitle.setText(post.getPostTitle());
+        private void bind(int postImageId, String postTitle, String postBody) {
+            postImage.setImageResource(postImageId);
+            postTitleView.setText(postTitle);
+            postBodyView.setText(postBody);
         }
     }
 }
