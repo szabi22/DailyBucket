@@ -8,67 +8,23 @@
     android:background="@drawable/postbackground"
     tools:context=".MainActivity">
 
+
+
     ]]>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="367dp"
-        android:layout_height="364dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="131dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginBottom="149dp"
-        android:text="TextView" />
-
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginLeft="93dp"
-        android:layout_marginTop="72dp"
-        android:text="AutoCompleteTextView" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="57dp"
-        android:layout_height="49dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="71dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="79dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginBottom="60dp" />
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="376dp"
+        android:layout_marginRight="376dp"
+        android:scrollbars="vertical" />
 
     <ImageButton
         android:id="@+id/imageButton"

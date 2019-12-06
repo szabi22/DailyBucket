@@ -16,15 +16,14 @@ import java.util.List;
 
 public class UserProfileFragment extends Fragment {
     RecyclerView mRecyclerView;
-    int[] mPostList;
+    //List<Post> mPostList;
+    int[]mPostList;
     public UserProfileFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mPostList = new int[]{R.drawable.profile2};
-
         return inflater.inflate(R.layout.userprofile, container, false);
     }
 
@@ -41,18 +40,13 @@ public class UserProfileFragment extends Fragment {
         // a post is recyclerviewvel mukodik? ugy tudom pill vagy nem is ez mas gep whoops
         mPostList = new int[]{R.drawable.clujnapoca, R.drawable.bucharest, R.drawable.budapest, R.drawable.london, R.drawable.seoul, R.drawable.sydney,
                 R.drawable.tokyo, R.drawable.la}; /// igy kell kepeket, s be kell oket tenni a darawableba
+        //mPostList.get(0).setPostImage(R.drawable.clujnapoca);
+        //mPostList.get(1).setPostImage(R.drawable.bucharest);
 
-        mCityNameList = new String[]{"Cluj-Napoca", "Bucharest", "Budapest", "London", "Seoul", "Sydney", "Tokyo", "Los Angeles"};
-        /// s ha a posthoz akatok szoveget az igy
 
-        // meg itt vagytok? persze
-        //oh hi , Szabi here hello. na akkor ez megvann? be kell tenni a drawableba a kepeket amiket kuldtem es ki
-        //aztan a cimmet be kell helyetesiteni azok helyet ugye reni??
-        // aha
-        //okes amugy avval a mypost adapterrel nem tudod mi a kaki van??
-        List<Post> valtozo = new ArrayList<Post>;
-        valtozo.add(new Post());
-        MyPostAdapter myAdapter = new MyPostAdapter(getContext(), valtozo);
+        //List<Post> valtozo = new ArrayList<>();
+        //valtozo.add(new Post());
+        MyPostAdapter myAdapter = new MyPostAdapter(getContext(),mPostList);
         mRecyclerView.setAdapter(myAdapter);
     }
 }

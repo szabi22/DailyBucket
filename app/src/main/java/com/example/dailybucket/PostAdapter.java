@@ -9,31 +9,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.Adapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {//ide mik is kellenk?a kep es meg mi?
 
     private Context mContext;
     //private List<Post> posts;
     private int[] posts;
+    private String[]  name;
+    private int[] image;
 
-    public MyPostAdapter(Context mContext, int[] posts) {
+
+    public PostAdapter(Context mContext, int[] posts) {
         this.mContext = mContext;
         this.posts = posts;
     }
 
     @Override
-    public MyPostAdapter.MyPostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.myposts_item,
                 parent, false);
-        return new MyPostViewHolder(view);
+        return new PostAdapter.PostViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final MyPostViewHolder holder, int position) {
+    public void onBindViewHolder(final PostAdapter.PostViewHolder holder, int position) {
         holder.bind(posts[position]); // na legalabb itt6
 
         holder.postImage.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +44,7 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
             }
         });
     }
-//kocsog ez a programozas :((444444444
+    //kocsog ez a programozas :((444444444
     // kell menjek meg irok este szia\
     //TED BE TOLTENI TESSS itt mi a foss van ?? amugy ennek nincs loginja?? ez valami mas i guess ennek kellene legyen
     @Override
@@ -53,12 +52,12 @@ public class MyPostAdapter extends Adapter<MyPostAdapter.MyPostViewHolder> {
         return posts.length;
     }
 
-    public class MyPostViewHolder extends RecyclerView.ViewHolder {
+    public class PostViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView postImage;
         private TextView postTitle;
 
-        private MyPostViewHolder(View itemView) {
+        private PostViewHolder(View itemView) {
             super(itemView);
 
             postImage = itemView.findViewById(R.id.mypost);
