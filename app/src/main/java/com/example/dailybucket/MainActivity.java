@@ -131,36 +131,4 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
         return false;
     }
-    public class PostFragment extends Fragment {
-        RecyclerView mRecyclerView;
-        //List<Post> mPostList;
-        int[]mPostList;
-        public PostFragment() {
-        }
-
-        @Nullable
-        @Override
-        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.activity_main, container, false);
-        }
-
-        @Nullable
-        @Override
-        public void onViewCreated(View view, Bundle savedInstanceState) {
-            mRecyclerView = getView().findViewById(R.id.feed);
-            GridLayoutManager mGridLayoutManager;
-            mGridLayoutManager = new GridLayoutManager(getContext(), 3);
-            mRecyclerView.setLayoutManager(mGridLayoutManager);
-            mPostList = new int[]{R.drawable.clujnapoca, R.drawable.bucharest, R.drawable.budapest, R.drawable.london, R.drawable.seoul, R.drawable.sydney,
-                    R.drawable.tokyo, R.drawable.la};
-            //mPostList.get(0).setPostImage(R.drawable.clujnapoca);
-            //mPostList.get(1).setPostImage(R.drawable.bucharest);
-
-
-            //List<Post> valtozo = new ArrayList<>();
-            //valtozo.add(new Post());
-            PostAdapter myAdapter = new PostAdapter(getContext(),mPostList);
-            mRecyclerView.setAdapter(myAdapter);
-        }
-    }
 }
