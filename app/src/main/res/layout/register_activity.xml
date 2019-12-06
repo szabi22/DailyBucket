@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginbackground"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
+
 
     <EditText
         android:layout_width="180dp"
@@ -17,9 +18,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginEnd="215dp"
-        android:layout_marginRight="215dp"
-        android:layout_marginBottom="485dp"
+        android:layout_marginEnd="190dp"
+        android:layout_marginRight="190dp"
+        android:layout_marginBottom="380dp"
         android:hint="@string/firstname"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/black"
@@ -28,7 +29,7 @@
     </EditText>
 
     <EditText
-        android:layout_width="180dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -36,7 +37,7 @@
 
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="485dp"
+        android:layout_marginBottom="380dp"
         android:hint="@string/lastname"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/black"
@@ -57,7 +58,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="85dp"
         android:layout_marginRight="85dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="300dp"
         android:hint="@string/email"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/black"
@@ -78,7 +79,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginEnd="176dp"
         android:layout_marginRight="176dp"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="220dp"
         android:hint="@string/password1"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/black"
@@ -96,7 +97,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginEnd="97dp"
         android:layout_marginRight="97dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="140dp"
         android:hint="@string/password2"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/black"
@@ -104,8 +105,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="344dp"
-        android:layout_height="166dp"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -119,18 +120,10 @@
         android:layout_marginRight="37dp"
         android:layout_marginBottom="40dp"
         android:visibility="visible"
-        app:srcCompat="@drawable/register" />
+        android:onClick="onRegisterClick"
+        app:srcCompat="@drawable/register"
+         />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="00dp"
-        android:layout_height="300dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="517dp"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
         android:id="@+id/textView7"
@@ -152,21 +145,18 @@
         app:srcCompat="@drawable/blankp" />
 
     <EditText
-        android:id="@+id/textView2"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginEnd="288dp"
-        android:layout_marginRight="288dp"
-        android:layout_marginBottom="571dp"
-        android:hint="@string/username"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColorHint="@color/colorBlack" />
+    android:layout_width="180dp"
+    android:layout_height="60dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="450dp"
+    android:hint="@string/username"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+    android:textColor="@android:color/black"
+    android:textColorHint="@android:color/black">
+
+</EditText>
 
 </RelativeLayout>

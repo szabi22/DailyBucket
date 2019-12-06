@@ -5,7 +5,7 @@ public final class AuthenticationManager {
     public static String userName = "John Doe";
 
     public static void logIn(String username, String password) {
-        if (username.equals("username") && password.equals("password")) {
+        if (username.equals("user1") && password.equals("password123")) {
             LOGGED_IN = true;
         }
     }

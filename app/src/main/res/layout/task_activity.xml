@@ -30,7 +30,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="Task 1: Go walk the dog for 15 minutes"
+                    android:text="Task 1: Kávézás egy tematikus helyen"
                     android:textColor="@color/colorBlack" />
             </FrameLayout>
 
@@ -49,7 +49,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="Task 2: Talk to a random person walking down the road!"
+                    android:text="Task 2: Függőágyra fel"
                     android:textColor="@color/colorBlack" />
             </FrameLayout>
 
@@ -68,13 +68,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:text="Task3: Eat two apples!"
+                    android:text="Task3: Legyél konyhatündér!"
                     android:textColor="@color/colorBlack" />
             </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="Add new post" />
+        </FrameLayout>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/addpost" />
 
         </LinearLayout>
 
-    </ScrollView>
 
-</RelativeLayout>
+</ScrollView>
+
+
+    </RelativeLayout>

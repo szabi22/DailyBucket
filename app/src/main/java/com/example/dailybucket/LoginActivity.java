@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(getClass().getCanonicalName(), "!@#$ pressed");
         Intent intent1 = new Intent(this, RegisterActivity.class);
         startActivity(intent1);
-
     }
 
     public void onLoginClick(View view) {
